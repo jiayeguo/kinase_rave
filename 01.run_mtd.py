@@ -62,7 +62,7 @@ feat_dict = dict()
     # 54: angle between aC and aE helices
     # 55 - 61: Dunbrack dihedrals
 for i in range(62):
-    feat_dict[i] = mm.CustomTorsionForce("theta")
+    feat_dict[i] = mm.CustomTorsionForce("cos(theta)")
     feat_dict[i].addTorsion(int(dih[i][0]), int(dih[i][1]), int(dih[i][2]), int(dih[i][3]))
 
 # feature 62 - 68: distance features
@@ -76,7 +76,7 @@ print("Done populating dihedrals and distances.")
 w1 = dict() 
 w2 = dict()
 
-sel_feat = list([66, 65, 62, 68, 19, 67, 63, 64]) # these are 1-based indices
+sel_feat = list([19, 62, 63, 64, 65, 66, 67, 68]) # these are 1-based indices
 weights1 = list([0.009626, -0.045500, -0.521299, 0.025095, -0.563564, -0.457624, -0.393545, 0.208691])
 weights2 = list([-0.002846, 0.023837, 0.535975, 0.777245, 0.040945, 0.1803, -0.247547, 0.112163])
 for n in range(8):
